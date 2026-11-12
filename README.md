@@ -43,14 +43,29 @@ Terraform configuration.
 
 ![Node Exporter network transmit traffic](docs/screenshots/network-transmit-traffic.png)
 
-Dashboard JSON exports were not included with the screenshots. Add exported
-dashboard JSON files separately if you want to make the dashboards
-reprovisionable from this repository.
+### Exported dashboards
+
+The Grafana dashboard exports are in [`grafana/dashboards/`](grafana/dashboards/):
+
+- `ec2-cpu.json`
+- `ec2-memory.json`
+- `ec2-disk.json`
+- `network-transmit.json`
+- `ecs-container-cpu.json`
+- `ecs-container-memory.json`
+- `container-last-seen.json`
+- `cadvisor-monitoring-status.json`
+
+Import a JSON file from Grafana using **Dashboards → New → Import**. Configure
+the Prometheus data source and the relevant Node Exporter, cAdvisor, and ECS
+metrics before expecting panels to return data. Grafana's per-instance
+resource metadata and user identifiers have been removed from the exports.
 
 ## Repository contents
 
 - `Terraform/`: reusable Terraform root configuration and resource modules.
 - `application/`: Flask app, container definition, and frontend assets.
+- `grafana/dashboards/`: exported Grafana dashboard JSON.
 - `docs/screenshots/`: Grafana and Prometheus screenshots.
 - `Terraform/.terraform.lock.hcl`: committed provider lock file for consistent
   Terraform provider selections.
