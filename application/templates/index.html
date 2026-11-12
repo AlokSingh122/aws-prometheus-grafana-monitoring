@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101827">
+    <meta
+      name="description"
+      content="A hands-on Flask project for learning Prometheus and Grafana monitoring."
+    >
+    <title>Observability Lab | Flask on ECS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="topbar" aria-label="Main navigation">
+        <a class="brand" href="/" aria-label="Observability Lab home">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>OBSERVABILITY<span class="brand-light"> LAB</span></span>
+        </a>
+        <span class="environment"><span class="status-dot"></span> FLASK APP</span>
+      </nav>
+
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> MY CLOUD-NATIVE LEARNING PROJECT</p>
+          <h1 id="page-title">Hello, <span>observability.</span></h1>
+          <p class="intro">
+            I'm learning <strong>Prometheus and Grafana</strong> by building and
+            monitoring a Flask application running on Amazon ECS.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="/metrics">
+              Explore live metrics <span aria-hidden="true">↗</span>
+            </a>
+            <a class="button button-secondary" href="/health">
+              Check app health <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <p class="hero-note"><span class="status-dot"></span> Application is up and responding</p>
+        </div>
+
+        <aside class="terminal-card" aria-label="Prometheus metrics endpoint example">
+          <div class="terminal-top">
+            <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span>prometheus · scrape target</span>
+            <span class="terminal-live">LIVE</span>
+          </div>
+          <div class="terminal-body">
+            <p class="code-comment"># Flask application metrics</p>
+            <p><span class="code-key">GET</span> <span class="code-url">/metrics</span></p>
+            <div class="code-rule"></div>
+            <p><span class="code-metric">http_requests_total</span><span class="code-value"> counter</span></p>
+            <p><span class="code-metric">http_request_duration_seconds</span></p>
+            <p><span class="code-metric">app_up</span><span class="code-value"> 1.0</span></p>
+            <div class="scrape-status"><span class="status-dot"></span> Ready to be scraped</div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="metrics-section" aria-labelledby="learn-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">WHAT I'M EXPLORING</p>
+            <h2 id="learn-title">Learning one signal at a time.</h2>
+          </div>
+          <p class="section-caption">A small app, a big world of monitoring.</p>
+        </div>
+
+        <div class="signal-grid">
+          <article class="signal-card">
+            <span class="signal-index">01 / COUNTER</span>
+            <div class="signal-icon icon-coral" aria-hidden="true">↗</div>
+            <h3>HTTP requests</h3>
+            <p>Track request volume, grouped by method, endpoint, and response status.</p>
+            <code>http_requests_total</code>
+          </article>
+          <article class="signal-card">
+            <span class="signal-index">02 / HISTOGRAM</span>
+            <div class="signal-icon icon-violet" aria-hidden="true">◷</div>
+            <h3>Request duration</h3>
+            <p>Observe how long requests take and learn to spot latency changes.</p>
+            <code>http_request_duration_seconds</code>
+          </article>
+          <article class="signal-card">
+            <span class="signal-index">03 / GAUGE</span>
+            <div class="signal-icon icon-mint" aria-hidden="true">⌁</div>
+            <h3>App availability</h3>
+            <p>Expose a simple up signal that can become the start of an alert.</p>
+            <code>app_up</code>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>BUILT WITH FLASK · RUNNING ON ECS</span>
+        <span>Learning in public, one metric at a time.</span>
+      </footer>
+    </main>
+  </body>
+</html>
